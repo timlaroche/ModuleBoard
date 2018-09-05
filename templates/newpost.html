@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %} New Post {% endblock %}
+{% block head %}
+    {{ super() }}
+    <!-- Include Editor style. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+	<form name="newpost" action='/newpost' method='POST'>
+		Title <input type="Text" name="title">
+		Module Board <input type="Text" name="moduleboard">
+		<textarea id="postbody" name="body"></textarea>
+		<input type="submit" value="Go">
+	</form>
+    <!-- Include Editor JS files. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.8.4/js/froala_editor.pkgd.min.js"></script>
+<script> $(function(){ $('#postbody').froalaEditor() }); </script>
+{% endblock %}

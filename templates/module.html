@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Modules {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <h1> {{ moduleinfo.code }} </h1>
+    <h1> {{ moduleinfo.name }} </h1>
+    <hr>
+    <h1> Posts </h1>
+	{% for post in posts %}
+		<a href='/module/{{ post.moduleboard }}/{{ post._id }}'><h1> {{ post.title }} </h1></a>
+		<p> {{ post.body | safe }} </p>
+	{% endfor %}
+{% endblock %}

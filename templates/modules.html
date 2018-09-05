@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Modules {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <h1> Search </h1>
+    <form>
+        <textarea id="search" placeholder="Enter module number"></textarea>
+        <button>go</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} All posts {% endblock %}
+{% block content %}
+	<h1> {{ postinfo.title }} </h1>
+	<p> {{ postinfo.body | safe}}
+
+	Comment
+	<form>
+		<textarea></textarea>
+	</form>
+{% endblock %}
