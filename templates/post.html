@@ -1,11 +1,20 @@
 {% extends "base.html" %}
-{% block title %} All posts {% endblock %}
+{% block title %} Moduleboard - {{ postinfo.title }} {% endblock %}
 {% block content %}
 	<h1> {{ postinfo.title }} </h1>
 	<p> {{ postinfo.body | safe}}
 
-	Comment
-	<form>
-		<textarea></textarea>
+	Comments
+	<form name="commentform" action="/postcomment" method="POST">
+		<input type="textarea" name="comment"></input>
+		<input type="hidden" name="thread" value="{{ postinfo._id }}" />
+		<button value="submit"> GO </button>
 	</form>
+
+	{% for comment in comments %}
+		<div>
+		<p>Username: {{ comment.username}} </p>
+		<p> {{ comment.comment }} </p>
+		</div>
+	{% endfor %}
 {% endblock %}
